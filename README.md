@@ -9,5 +9,6 @@ the master command for mesos container
 - note: you need to use --net=host --privileged, and you don't to expose the port because you have used --net=host
 - note: if you don't want to mount the volume, you can use the zk parameter at the end of this command `--zk=zk://<zk_ip>:<zk_port>/mesos` to specify the zookeeper's url
 - one tricky thing, when I use wrong parameter with "-zk", there is no error retrun
+- don't start the slave, and use the zookeeper client to check there is a znode "mesos" update the /
 
 
