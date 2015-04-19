@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# route add -net $1 eth0
+set -e
+echo "start mesos master with parameter : $@ "
+[[ $1 ]] && exec /usr/sbin/mesos-master  --ip=$(ip -o -4 addr list eth0 | grep global | awk '{print $4}' | cut -d/ -f1) "$@"

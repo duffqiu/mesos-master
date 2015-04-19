@@ -6,6 +6,12 @@ RUN yum install -y wget
 
 WORKDIR /var/lib/mesos/master
 
+EXPOSE 5050
 
-ENTRYPOINT ["mesos-master"]
+COPY mesos-master-start /usr/bin/mesos-master-start
 
+RUN chmod +x /usr/bin/mesos-master-start
+
+ENTRYPOINT ["/usr/bin/mesos-master-start"]
+
+CMD ["--help"]
